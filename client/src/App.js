@@ -8,19 +8,21 @@ import './App.css'
 import 'stream-chat-react/dist/css/index.css'
 
 const apiKey = 'eh75qxnvn6z9'
-const client = StreamChat.getInstance(apiKey)
 
 const cookies = new Cookies()
 
+const client = StreamChat.getInstance(apiKey)
+
 const authToken = cookies.get("token")
+
 if ( authToken ) {
   client.connectUser({
+    id : cookies.get('userId'),
     name : cookies.get('username'),
     fullName : cookies.get('fullName'),
-    id : cookies.get('userId'),
-    phoneNumber : cookies.get('phoneNumber'),
     image : cookies.get('avatarURL'),
-    hashedPassword : cookies.get('hashedPassword')
+    hashedPassword : cookies.get('hashedPassword'),
+    phoneNumber : cookies.get('phoneNumber'),
   }, authToken)
 }
 
