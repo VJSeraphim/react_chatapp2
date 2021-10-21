@@ -1,0 +1,33 @@
+import React from 'react'
+
+import { AddChannel } from '../assets'
+
+const TeamChannelList = ({ children, error = false, isLoading, type}) => {
+    if ( error ) {
+        return type === 'team' ? (
+            <div className="team-channel-list">
+                <p className="team-channel-list__message">
+                    Unknown Connection Error.
+                </p>
+            </div>
+        ) : null
+    }
+
+    if ( isLoading ) {
+        return (
+            <div className="team-channel-list">
+                <p className="team-channel-list__message loading">
+                    {type ==='team' ? 'Channels' : 'Messages'} loading. Please wait ...
+                </p>
+            </div>
+        )
+    }
+    
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+export default TeamChannelList

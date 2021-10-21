@@ -5,11 +5,22 @@ import { SearchIcon } from '../assets'
 
 const ChannelSearch = () => {
     const [query, setQuery] = useState('')
-    const [isLoading, setisLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const getChannels = async (text) => {
+        try {
+            
+        } catch (error) {
+            setQuery('')
+            console.log(error.message)
+        }
+    }
 
     const onSearch = (e) => {
         e.preventDefault()
-        setLoading(true)
+        isLoading(true)
+        setQuery(e.target.value)
+        getChannels(e.target.value)
     }
 
     return (
