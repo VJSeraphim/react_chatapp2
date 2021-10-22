@@ -1,9 +1,10 @@
 import React from 'react'
-import { StreahChat } from 'stream-chat'
+import { StreamChat } from 'stream-chat'
 import { Chat } from 'stream-chat-react'
 import Cookies from 'universal-cookie'
 
 import { ChannelContainer, ChannelListContainer } from './components'
+import './App.css'
 
 const apiKey = 'eh75qxnvn6z9'
 

@@ -31,7 +31,7 @@ const ChannelSearch = () => {
                 </div>
                 <input 
                     className="channel-search__input__text"
-                    placeHolder="Search"
+                    placeholder="Search"
                     type="text"
                     value={query}
                     onChange={onSearch}
