@@ -4,11 +4,25 @@ import axios from 'axios'
 
 import signinImage from '../assets/signup.jpg'
 
+const initState={
+    fullName: '',
+    userName: '',
+    password: '',
+    confirmPassword: '',
+    phoneNumber: '',
+    avatarURL: ''
+}
+
 const Auth = () => {
+    const [form, setForm] = useState(initState)
     const [isSignUp, setisSignUp] = useState(false)
 
-    const handleChange = () => {
+    const handleChange = (e) => {
+        setForm({ ... form, [e.target.name]: e.target.value})
+    }
 
+    const switchMode = () => {
+        setisSignUp((prev) => !prev)
     }
 
     return (
@@ -75,8 +89,34 @@ const Auth = () => {
                                 required
                             />
                         </div>
+                        {isSignUp && (
+                            <div className="auth__form-container_fields-content_input">
+                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <input
+                                    name="confirmPassword"
+                                    type="text"
+                                    placeholder="Confirm Password"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        )}
+                        <div className="auth__form-container_fields-account">
+                            <p>
+                                {isSignUp ? 
+                                    "Do you already have your account? " :
+                                    "Account not exists yet? "
+                                }
+                                <span onClick={switchMode}>
+                                    {isSignUp ? 'Sign In' : 'Sign Up'}
+                                </span>
+                            </p>
+                        </div>
                     </form>
                 </div>
+            </div>
+            <div className="auth__form-container_image">
+                <img src={signinImage} alt="sign in" />
             </div>
         </div>
     )
