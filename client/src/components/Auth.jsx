@@ -25,6 +25,11 @@ const Auth = () => {
         setisSignUp((prev) => !prev)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+    }
+
     return (
         <div className="auth__form-container">
             <div className="auth__form-container_fields">
@@ -32,7 +37,7 @@ const Auth = () => {
                     <p>
                         {isSignUp ? 'Sign Up' : 'Sign In'}
                     </p>
-                    <form onSubmit={}>
+                    <form onSubmit={handleSubmit}>
                         {isSignUp && (
                             <div className="auth__form-container_fields-content_input">
                                 <label htmlFor="fullName">Full Name</label>
@@ -101,18 +106,23 @@ const Auth = () => {
                                 />
                             </div>
                         )}
-                        <div className="auth__form-container_fields-account">
-                            <p>
-                                {isSignUp ? 
-                                    "Do you already have your account? " :
-                                    "Account not exists yet? "
-                                }
-                                <span onClick={switchMode}>
-                                    {isSignUp ? 'Sign In' : 'Sign Up'}
-                                </span>
-                            </p>
+                        <div className="auth__form-container_fields-content_button">
+                            <button>
+                                {isSignUp ? "Sign Up" : "Sign In"}
+                            </button>
                         </div>
                     </form>
+                    <div className="auth__form-container_fields-account">
+                        <p>
+                            {isSignUp ? 
+                                "Do you already have your account? " :
+                                "Account not exists yet? "
+                            }
+                            <span onClick={switchMode}>
+                                {isSignUp ? 'Sign In' : 'Sign Up'}
+                            </span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div className="auth__form-container_image">
